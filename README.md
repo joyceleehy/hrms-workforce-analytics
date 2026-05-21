@@ -56,8 +56,7 @@ Final cleaned dataset:
 
 ### Page 1: Workforce Overview
 
-![Workforce Overview]("C:\Users\USER\OneDrive\Documents\New project\hrms-workforce-analytics\images\Attrition.png")
-
+![Workforce Overview](./hrms-workforce-analytics/images/dashboard.png)
 
 This page provides a high-level snapshot of workforce size, employment status, and hiring movement.
 
