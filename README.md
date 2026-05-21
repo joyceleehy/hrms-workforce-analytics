@@ -44,31 +44,30 @@ hrms-workforce-analytics/
 - Ranking and moving averages
 - Variance analysis
 
-## Dashboard Pages
-![Workforce Overview](images/dashboard.png)
+
 ### Page 1: Workforce Overview
+![Workforce Overview](images/dashboard.png)
 
 - Total headcount
 - Active vs terminated employees
 - Hiring trend
 - Department headcount breakdown
-![Attrition Analysis](images/attrition.png)
+  
 ### Page 2: Attrition Analysis
-
+![Attrition Analysis](images/attrition.png)
 - Attrition rate
 - Voluntary vs involuntary exits
 - Attrition by department
   
-![Budget vs Actual](images/budget.png)
 ### Page 3: Budget vs Actual
+![Budget vs Actual](images/budget.png)
 
 - Workforce cost variance by department
 - Overspending vs underspending status
 - Actual monthly cost compared with planned budget
 
-![Forecast Insights](images/forecast.png)
 ### Page 4: Forecast Insights
-
+![Forecast Insights](images/forecast.png)
 - Headcount trend
 - Hiring gap estimation
 - Workforce planning indicators
