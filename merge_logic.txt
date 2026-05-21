@@ -1,0 +1,28 @@
+Power Query Merge Logic
+
+Recommended approach: Append, not join.
+
+Reason:
+HRMS_A and HRMS_B contain employee records from different source systems. The goal is to stack both datasets into one standardized master workforce table.
+
+Logic:
+1. Clean HRMS_A into the target schema.
+2. Clean HRMS_B into the same target schema.
+3. Append HRMS_A_Clean and HRMS_B_Clean.
+4. Remove duplicate employee_id values.
+5. Add employee_status.
+6. Load the master query to Power BI or export as cleaned_master_data.csv.
+
+Target schema:
+employee_id
+employee_name
+department
+job_level
+hire_date
+termination_date
+termination_type
+salary
+monthly_cost
+budget_cost
+source_system
+employee_status

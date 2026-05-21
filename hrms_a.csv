@@ -1,0 +1,9 @@
+employee_id,employee_name,department,job_level,hire_date,termination_date,termination_type,salary,monthly_cost,budget_cost,source_system
+A-001,Aisha Rahman,Human Resources,Senior,2021-03-15,,,$72000,$6000,$5800,HRMS_A
+A-002,Daniel Tan,Finance,Mid,2022-07-01,,,$68000,$5667,$5600,HRMS_A
+A-003,Priya Nair,Sales,Junior,2023-01-10,2025-11-20,Voluntary,$48000,$4000,$4200,HRMS_A
+A-004,Marcus Lee,IT,Senior,2020-09-22,,,$90000,$7500,$7300,HRMS_A
+A-005,Nur Afiqah,Operations,Mid,2024-02-05,,,$59000,$4917,$5000,HRMS_A
+A-006,Jason Wong,Sales,Mid,2022-04-18,2025-08-31,Involuntary,$62000,$5167,$5100,HRMS_A
+A-007,Siti Aminah,HR,Junior,2025-01-13,,,$42000,$3500,$3600,HRMS_A
+A-008,Vikram Kumar,Information Tech,Mid,2023-06-19,,,$76000,$6333,$6200,HRMS_A
