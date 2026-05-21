@@ -56,7 +56,7 @@ Final cleaned dataset:
 
 ### Page 1: Workforce Overview
 
-![Workforce Overview](images/dashboard.png)
+![Workforce Overview](dashboard.png)
 
 This page provides a high-level snapshot of workforce size, employment status, and hiring movement.
 
@@ -72,7 +72,7 @@ Key visuals:
 
 ### Page 2: Attrition Analysis
 
-![Attrition Analysis](./images/attrition.png)
+![Attrition Analysis](Attrition.png)
 
 This page focuses on employee exits and attrition risk.
 
@@ -86,7 +86,7 @@ Key visuals:
 
 ### Page 3: Budget vs Actual
 
-![Budget vs Actual](./images/budget.png)
+![Budget vs Actual](Budget.png)
 
 This page compares actual workforce cost against planned budget.
 
@@ -102,7 +102,7 @@ Key visuals:
 
 ### Page 4: Forecast Insights
 
-![Forecast Insights](./images/forecast.png)
+![Forecast Insights](forecast.png)
 
 This page supports workforce planning by showing hiring movement and future planning signals.
 
@@ -114,7 +114,7 @@ Key visuals:
 - Hiring trend by year
 - 2025 hiring by department
 - Forecast insight summary
-
+  
 ## Key Insights
 
 | Insight | Business Impact | Recommendation | Suggested Action |
