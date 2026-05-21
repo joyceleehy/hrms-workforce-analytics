@@ -45,42 +45,33 @@ hrms-workforce-analytics/
 - Variance analysis
 
 ## Dashboard Pages
-
+![Workforce Overview](images/dashboard.png)
 ### Page 1: Workforce Overview
 
 - Total headcount
 - Active vs terminated employees
 - Hiring trend
 - Department headcount breakdown
-
+![Attrition Analysis](images/attrition.png)
 ### Page 2: Attrition Analysis
 
 - Attrition rate
 - Voluntary vs involuntary exits
 - Attrition by department
-
+  
+![Budget vs Actual](images/budget.png)
 ### Page 3: Budget vs Actual
 
 - Workforce cost variance by department
 - Overspending vs underspending status
 - Actual monthly cost compared with planned budget
 
+![Forecast Insights](images/forecast.png)
 ### Page 4: Forecast Insights
 
 - Headcount trend
 - Hiring gap estimation
 - Workforce planning indicators
-
-## Dashboard Images
-
-Add screenshots after building the Power BI report:
-
-## Dashboard Images
-
-![Workforce Overview](images/dashboard.png)
-![Attrition Analysis](images/attrition.png)
-![Budget vs Actual](images/budget.png)
-![Forecast Insights](images/forecast.png)
 
 ## Key Insights
 
@@ -99,22 +90,3 @@ Add screenshots after building the Power BI report:
 - Add employee engagement and performance data.
 - Create department-level hiring forecasts.
 - Add Power BI row-level security for HR business partners.
-
-## LinkedIn Post Draft
-
-I built an end-to-end HR analytics system using Power Query, SQL, and Power BI.
-
-In this project, I cleaned multi-source HRMS data, merged two HR systems into one master workforce dataset, built a SQL analysis layer, and created dashboard pages for workforce decision-making.
-
-Key features:
-- Attrition analysis
-- Headcount tracking
-- Hiring vs exit trends
-- Budget vs actual workforce cost
-- Forecast insights
-
-One key insight: headcount increase does not always mean productivity increase. If growth is driven mainly by junior hires, productivity may temporarily drop while new employees ramp up.
-
-GitHub project: [Add your GitHub link here]
-
-Open to feedback from HR analytics, data analytics, and Power BI professionals.
