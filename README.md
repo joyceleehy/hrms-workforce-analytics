@@ -8,24 +8,6 @@ The project combines two sample HRMS files into one cleaned master dataset. Powe
 
 The goal of this project is to demonstrate how HR data from different systems can be cleaned, merged, and transformed into actionable workforce insights for HR leaders and business stakeholders.
 
-## Dashboard Preview
-
-### Workforce Overview
-
-![Workforce Overview](dashboard.png)
-
-### Attrition Analysis
-
-![Attrition Analysis](Attrition.png)
-
-### Budget vs Actual
-
-![Budget vs Actual](Budget.png)
-
-### Forecast Insights
-
-![Forecast Insights](forecast.png)
-
 ## Key Highlights
 
 - Total employees: 16
@@ -77,6 +59,8 @@ Main cleaning steps included:
 
 ## Page 1: Workforce Overview
 
+![Workforce Overview](https://raw.githubusercontent.com/joyceleehy/hrms-workforce-analytics/main/images/dashboard.png)
+
 This page provides a high-level snapshot of workforce size, employee status, department headcount, and hiring movement.
 
 Key visuals:
@@ -91,6 +75,8 @@ Key visuals:
 
 ## Page 2: Attrition Analysis
 
+![Attrition Analysis](https://raw.githubusercontent.com/joyceleehy/hrms-workforce-analytics/main/images/Attrition.png)
+
 This page focuses on employee exits and attrition risk.
 
 Key visuals:
@@ -103,6 +89,8 @@ Key visuals:
 - Attrition insight summary
 
 ## Page 3: Budget vs Actual
+
+![Budget vs Actual](https://raw.githubusercontent.com/joyceleehy/hrms-workforce-analytics/main/images/Budget.png)
 
 This page compares actual workforce cost against planned budget.
 
@@ -117,6 +105,8 @@ Key visuals:
 - Overspending vs underspending status
 
 ## Page 4: Forecast Insights
+
+![Forecast Insights](https://raw.githubusercontent.com/joyceleehy/hrms-workforce-analytics/main/images/forecast.png)
 
 This page supports workforce planning by showing hiring movement and future workforce signals.
 
@@ -211,20 +201,20 @@ This dashboard helps HR leaders, People Analytics teams, and business stakeholde
 
 ## Files Included
 
-- `hrms_a.csv` - First sample HRMS source file
-- `hrms_b.csv` - Second sample HRMS source file
-- `cleaned_master_data.csv` - Final cleaned master dataset
-- `cleaning_steps.txt` - Power Query cleaning documentation
-- `merge_logic.txt` - Power Query merge and append logic
-- `attrition.sql` - SQL attrition analysis
-- `headcount.sql` - SQL headcount and hiring trend analysis
-- `budget_vs_actual.sql` - SQL budget variance analysis
-- `window_functions.sql` - SQL window function examples
-- `dashboard.pbix` - Power BI dashboard file
-- `dashboard.png` - Workforce Overview dashboard preview
-- `Attrition.png` - Attrition Analysis dashboard preview
-- `Budget.png` - Budget vs Actual dashboard preview
-- `forecast.png` - Forecast Insights dashboard preview
+- `data/hrms_a.csv` - First sample HRMS source file
+- `data/hrms_b.csv` - Second sample HRMS source file
+- `data/cleaned_master_data.csv` - Final cleaned master dataset
+- `power_query/cleaning_steps.txt` - Power Query cleaning documentation
+- `power_query/merge_logic.txt` - Power Query merge and append logic
+- `sql/attrition.sql` - SQL attrition analysis
+- `sql/headcount.sql` - SQL headcount and hiring trend analysis
+- `sql/budget_vs_actual.sql` - SQL budget variance analysis
+- `sql/window_functions.sql` - SQL window function examples
+- `powerbi/dashboard.pbix` - Power BI dashboard file
+- `images/dashboard.png` - Workforce Overview dashboard preview
+- `images/Attrition.png` - Attrition Analysis dashboard preview
+- `images/Budget.png` - Budget vs Actual dashboard preview
+- `images/forecast.png` - Forecast Insights dashboard preview
 
 ## Note
 
