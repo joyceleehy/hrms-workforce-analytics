@@ -1,0 +1,157 @@
+-- Attrition Rate
+-- Replace cleaned_master_data with your actual table name if different.
+
+SELECT
+    COUNT(*) AS total_employees,
+    SUM(CASE WHEN employee_status = 'Terminated' THEN 1 ELSE 0 END) AS terminated_employees,
+    ROUND(
+        100.0 * SUM(CASE WHEN employee_status = 'Terminated' THEN 1 ELSE 0 END) / COUNT(*),
+        2
+    ) AS attrition_rate_pct
+FROM cleaned_master_data;
+
+-- Attrition by department
+SELECT
+    department,
+    COUNT(*) AS total_employees,
+    SUM(CASE WHEN employee_status = 'Terminated' THEN 1 ELSE 0 END) AS terminated_employees,
+    ROUND(
+        100.0 * SUM(CASE WHEN employee_status = 'Terminated' THEN 1 ELSE 0 END) / COUNT(*),
+        2
+    ) AS attrition_rate_pct
+FROM cleaned_master_data
+GROUP BY department
+ORDER BY attrition_rate_pct DESC;
+
+-- Voluntary vs involuntary exits
+SELECT
+    COALESCE(termination_type, 'Active') AS termination_type,
+    COUNT(*) AS employee_count
+FROM cleaned_master_data
+GROUP BY COALESCE(termination_type, 'Active')
+ORDER BY employee_count DESC;
+
+-- Budget vs Actual Workforce Cost
+
+SELECT
+    department,
+    SUM(monthly_cost) AS actual_monthly_cost,
+    SUM(budget_cost) AS budget_monthly_cost,
+    SUM(monthly_cost) - SUM(budget_cost) AS variance_amount,
+    ROUND(
+        100.0 * (SUM(monthly_cost) - SUM(budget_cost)) / NULLIF(SUM(budget_cost), 0),
+        2
+    ) AS variance_pct,
+    CASE
+        WHEN SUM(monthly_cost) > SUM(budget_cost) THEN 'Overspending'
+        WHEN SUM(monthly_cost) < SUM(budget_cost) THEN 'Underspending'
+        ELSE 'On Budget'
+    END AS budget_status
+FROM cleaned_master_data
+WHERE employee_status = 'Active'
+GROUP BY department
+ORDER BY variance_amount DESC;
+
+-- Headcount Snapshot and Hiring vs Exit Trend
+-- SQL Server / T-SQL version
+
+WITH months AS (
+    SELECT CAST('2025-01-01' AS date) AS month_start
+    UNION ALL
+    SELECT DATEADD(month, 1, month_start)
+    FROM months
+    WHERE month_start < '2025-12-01'
+)
+SELECT
+    m.month_start,
+    COUNT(e.employee_id) AS active_headcount
+FROM months m
+LEFT JOIN cleaned_master_data e
+    ON e.hire_date <= m.month_start
+    AND (e.termination_date IS NULL OR e.termination_date >= m.month_start)
+GROUP BY m.month_start
+ORDER BY m.month_start
+OPTION (MAXRECURSION 12);
+
+-- Monthly hires and exits
+WITH monthly_activity AS (
+    SELECT
+        DATEFROMPARTS(YEAR(hire_date), MONTH(hire_date), 1) AS month_start,
+        COUNT(*) AS monthly_hires,
+        0 AS monthly_exits
+    FROM cleaned_master_data
+    GROUP BY DATEFROMPARTS(YEAR(hire_date), MONTH(hire_date), 1)
+
+    UNION ALL
+
+    SELECT
+        DATEFROMPARTS(YEAR(termination_date), MONTH(termination_date), 1) AS month_start,
+        0 AS monthly_hires,
+        COUNT(*) AS monthly_exits
+    FROM cleaned_master_data
+    WHERE termination_date IS NOT NULL
+    GROUP BY DATEFROMPARTS(YEAR(termination_date), MONTH(termination_date), 1)
+)
+SELECT
+    month_start,
+    SUM(monthly_hires) AS monthly_hires,
+    SUM(monthly_exits) AS monthly_exits
+FROM monthly_activity
+GROUP BY month_start
+ORDER BY month_start;
+
+-- Window Functions for Workforce Analytics
+-- SQL Server / T-SQL version
+
+-- 1. Rank salary within department
+SELECT
+    employee_id,
+    employee_name,
+    department,
+    salary,
+    RANK() OVER (
+        PARTITION BY department
+        ORDER BY salary DESC
+    ) AS salary_rank_in_department
+FROM cleaned_master_data
+ORDER BY department, salary_rank_in_department;
+
+-- 2. Running headcount trend by hire month
+WITH hires_by_month AS (
+    SELECT
+        DATEFROMPARTS(YEAR(hire_date), MONTH(hire_date), 1) AS month_start,
+        COUNT(*) AS hires
+    FROM cleaned_master_data
+    GROUP BY DATEFROMPARTS(YEAR(hire_date), MONTH(hire_date), 1)
+)
+SELECT
+    month_start,
+    hires,
+    SUM(hires) OVER (
+        ORDER BY month_start
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ) AS running_hires
+FROM hires_by_month
+ORDER BY month_start;
+
+-- 3. 3-month moving attrition average
+WITH exits_by_month AS (
+    SELECT
+        DATEFROMPARTS(YEAR(termination_date), MONTH(termination_date), 1) AS month_start,
+        COUNT(*) AS exits
+    FROM cleaned_master_data
+    WHERE termination_date IS NOT NULL
+    GROUP BY DATEFROMPARTS(YEAR(termination_date), MONTH(termination_date), 1)
+)
+SELECT
+    month_start,
+    exits,
+    CAST(ROUND(
+        AVG(CAST(exits AS decimal(10, 2))) OVER (
+            ORDER BY month_start
+            ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+        ),
+        2
+    ) AS decimal(10, 2)) AS three_month_moving_attrition
+FROM exits_by_month
+ORDER BY month_start;
