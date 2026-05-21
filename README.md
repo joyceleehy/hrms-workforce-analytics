@@ -8,53 +8,6 @@ The project combines two sample HRMS files into one cleaned master dataset. Powe
 
 The goal of this project is to demonstrate how HR data from different systems can be cleaned, merged, and transformed into actionable workforce insights for HR leaders and business stakeholders.
 
-## Key Highlights
-
-- Total employees: 16
-- Active employees: 12
-- Terminated employees: 4
-- Attrition rate: 25.0%
-- Workforce cost and budget variance tracking
-- Department-level headcount analysis
-- Voluntary vs involuntary exit analysis
-- Hiring trend and workforce planning view
-- Budget overspending and underspending analysis
-
-## Data Sources
-
-This project uses two sample HRMS source files:
-
-- `hrms_a.csv`
-- `hrms_b.csv`
-
-Both files contain employee information such as employee ID, employee name, department, job level, hire date, termination date, termination type, salary, monthly cost, budget cost, and source system.
-
-The final cleaned dataset is:
-
-- `cleaned_master_data.csv`
-
-## Power Query Data Cleaning
-
-Power Query was used to clean and prepare the HRMS data before analysis.
-
-Main cleaning steps included:
-
-- Loaded `hrms_a.csv` and `hrms_b.csv` into Power Query.
-- Standardized column names so both HRMS files followed the same structure.
-- Cleaned employee ID format into one standard format, such as `EMP0001`.
-- Converted hire date and termination date into proper date format.
-- Standardized department names, for example:
-  - `HR` to `Human Resources`
-  - `IT` to `Information Technology`
-  - `Ops` to `Operations`
-- Removed currency symbols from salary and cost columns.
-- Converted salary, monthly cost, and budget cost into numeric format.
-- Removed duplicate employee records.
-- Appended both HRMS files into one master workforce table.
-- Created a new `employee_status` column:
-  - `Active` if termination date is blank
-  - `Terminated` if termination date is available
-
 ## Dashboard Pages
 
 ## Page 1: Workforce Overview
@@ -119,34 +72,18 @@ Key visuals:
 - 2025 hiring by department
 - Forecast insight summary
 
-## SQL Analysis Layer
+## Key Highlights
 
-SQL was used to create the analysis layer for workforce reporting.
+- Total employees: 16
+- Active employees: 12
+- Terminated employees: 4
+- Attrition rate: 25.0%
+- Workforce cost and budget variance tracking
+- Department-level headcount analysis
+- Voluntary vs involuntary exit analysis
+- Hiring trend and workforce planning view
+- Budget overspending and underspending analysis
 
-SQL analysis included:
-
-- Attrition rate calculation
-- Total employees and terminated employees
-- Attrition by department
-- Voluntary vs involuntary exits
-- Monthly headcount snapshot
-- Hiring vs exit trend
-- Budget vs actual workforce cost
-- Budget variance calculation
-- Salary ranking within department
-- Running headcount trend
-- 3-month moving attrition average
-
-## SQL Skills Demonstrated
-
-- Window functions
-- Time-series snapshots
-- Cohort-style workforce analysis
-- Salary ranking by department
-- Running totals
-- Moving averages
-- Budget variance analysis
-- Department-level workforce analysis
 
 ## Dashboard Insights
 
@@ -199,22 +136,69 @@ This dashboard helps HR leaders, People Analytics teams, and business stakeholde
 - Workforce Analytics
 - Business Intelligence
 
-## Files Included
+## Data Sources
 
-- `data/hrms_a.csv` - First sample HRMS source file
-- `data/hrms_b.csv` - Second sample HRMS source file
-- `data/cleaned_master_data.csv` - Final cleaned master dataset
-- `power_query/cleaning_steps.txt` - Power Query cleaning documentation
-- `power_query/merge_logic.txt` - Power Query merge and append logic
-- `sql/attrition.sql` - SQL attrition analysis
-- `sql/headcount.sql` - SQL headcount and hiring trend analysis
-- `sql/budget_vs_actual.sql` - SQL budget variance analysis
-- `sql/window_functions.sql` - SQL window function examples
-- `powerbi/dashboard.pbix` - Power BI dashboard file
-- `images/dashboard.png` - Workforce Overview dashboard preview
-- `images/Attrition.png` - Attrition Analysis dashboard preview
-- `images/Budget.png` - Budget vs Actual dashboard preview
-- `images/forecast.png` - Forecast Insights dashboard preview
+This project uses two sample HRMS source files:
+
+- `hrms_a.csv`
+- `hrms_b.csv`
+
+Both files contain employee information such as employee ID, employee name, department, job level, hire date, termination date, termination type, salary, monthly cost, budget cost, and source system.
+
+The final cleaned dataset is:
+
+- `cleaned_master_data.csv`
+
+## Power Query Data Cleaning
+
+Power Query was used to clean and prepare the HRMS data before analysis.
+
+Main cleaning steps included:
+
+- Loaded `hrms_a.csv` and `hrms_b.csv` into Power Query.
+- Standardized column names so both HRMS files followed the same structure.
+- Cleaned employee ID format into one standard format, such as `EMP0001`.
+- Converted hire date and termination date into proper date format.
+- Standardized department names, for example:
+  - `HR` to `Human Resources`
+  - `IT` to `Information Technology`
+  - `Ops` to `Operations`
+- Removed currency symbols from salary and cost columns.
+- Converted salary, monthly cost, and budget cost into numeric format.
+- Removed duplicate employee records.
+- Appended both HRMS files into one master workforce table.
+- Created a new `employee_status` column:
+  - `Active` if termination date is blank
+  - `Terminated` if termination date is available
+
+## SQL Analysis Layer
+
+SQL was used to create the analysis layer for workforce reporting.
+
+SQL analysis included:
+
+- Attrition rate calculation
+- Total employees and terminated employees
+- Attrition by department
+- Voluntary vs involuntary exits
+- Monthly headcount snapshot
+- Hiring vs exit trend
+- Budget vs actual workforce cost
+- Budget variance calculation
+- Salary ranking within department
+- Running headcount trend
+- 3-month moving attrition average
+
+## SQL Skills Demonstrated
+
+- Window functions
+- Time-series snapshots
+- Cohort-style workforce analysis
+- Salary ranking by department
+- Running totals
+- Moving averages
+- Budget variance analysis
+- Department-level workforce analysis
 
 ## Note
 
