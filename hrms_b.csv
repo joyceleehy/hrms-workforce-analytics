@@ -1,9 +1,0 @@
-emp_id,full_name,dept,grade,start_date,end_date,exit_reason,annual_salary,actual_monthly_cost,planned_monthly_budget,system
-EMP0009,Mei Chen,Marketing,Mid,15/02/2022,,,64000,5333,5200,HRMS_B
-EMP0010,Farid Ismail,Ops,Junior,09/05/2024,,,43000,3583,3700,HRMS_B
-EMP0011,Lina Lim,Finance,Senior,11/11/2021,30/09/2025,Voluntary,84000,7000,6800,HRMS_B
-EMP0012,Arjun Menon,IT,Junior,22/03/2025,,,52000,4333,4500,HRMS_B
-EMP0013,Sofia Martinez,Sales,Junior,04/04/2025,,,46000,3833,4000,HRMS_B
-EMP0014,Hana Abdullah,Human Resource,Mid,18/08/2023,,,61000,5083,5000,HRMS_B
-EMP0015,Kevin Goh,Marketing,Senior,07/01/2020,15/12/2025,Involuntary,88000,7333,7100,HRMS_B
-EMP0016,Rachel Teo,Operations,Mid,29/10/2022,,,60000,5000,4900,HRMS_B
