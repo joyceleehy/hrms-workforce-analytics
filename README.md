@@ -56,7 +56,7 @@ Final cleaned dataset:
 
 ### Page 1: Workforce Overview
 
-![Workforce Overview](./hrms-workforce-analytics/images/dashboard.png)
+![Workforce Overview](images/dashboard.png)
 
 This page provides a high-level snapshot of workforce size, employment status, and hiring movement.
 
